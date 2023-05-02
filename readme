@@ -29,3 +29,4 @@ remappings=[
             ('/odom', '/tb3_0/odom'),
             ('/scan', '/tb3_0/scan'),],
 
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=/tb3_0/cmd_vel
