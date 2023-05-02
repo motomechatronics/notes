@@ -20,3 +20,12 @@ def main(args=None):
         rclpy.shutdown()
 
 printenv ROS_DISTRO
+
+
+
+# ROS2 navigation: multi-robot navigation
+remappings=[
+            ('/cmd_vel', '/tb3_0/cmd_vel'),
+            ('/odom', '/tb3_0/odom'),
+            ('/scan', '/tb3_0/scan'),],
+
