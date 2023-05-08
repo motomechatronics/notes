@@ -32,4 +32,13 @@ remappings=[
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=/tb3_0/cmd_vel
 
 # tar
-tar -xvf ros2_sims_ws.tar ^C
+tar -xvf ros2_sims_ws.tar 
+
+# list cycle
+security_route = [
+        [1.792, 2.144],
+        [1.792, -5.44]]
+ for pt in security_route:
+            pose.pose.position.x = pt[0]
+            pose.pose.position.y = pt[1]
+      
