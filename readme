@@ -41,4 +41,9 @@ security_route = [
  for pt in security_route:
             pose.pose.position.x = pt[0]
             pose.pose.position.y = pt[1]
-      
+ 
+# whait to establish a connection before publishing
+        while not rospy.is_shutdown():
+            connections = self.pub.get_num_connections()
+            if connections > 0:
+                self.pub.publish(boundingBoxArray_object)
