@@ -53,5 +53,7 @@ qmake --version
 
 # to know installation Qt directory
 qmake -query QT_INSTALL_PREFIX
+oppure
+find / -name "Qt*" -type d 2>/dev/null
 
 
