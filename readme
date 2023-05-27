@@ -56,4 +56,8 @@ qmake -query QT_INSTALL_PREFIX
 oppure
 find / -name "Qt*" -type d 2>/dev/null
 
+to configure qt5 on ubuntu (Qt5 already installed)
+add at the end of .bashrc file
+export QTDIR=/usr/lib/x86_64-linux-gnu/qt5
+export PATH=$PATH:$QTDIR/bin
 
