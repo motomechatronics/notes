@@ -47,3 +47,11 @@ security_route = [
             connections = self.pub.get_num_connections()
             if connections > 0:
                 self.pub.publish(boundingBoxArray_object)
+                
+# to know if Qt is installet
+qmake --version
+
+# to know installation Qt directory
+qmake -query QT_INSTALL_PREFIX
+
+
