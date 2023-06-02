@@ -5,8 +5,8 @@ echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
 echo "export _colcon_cd_root=/home/user/ros2_ws" >> ~/.bashrc
 . ~/.bashrc
 
-How to set the initial location of the robot programmatically
-corso ros2 navigation galactic capitolo 3
+**How to set the initial location of the robot programmatically
+corso ros2 navigation galactic capitolo 3**
 
 def main(args=None):
     rclpy.init(args=args)
@@ -61,3 +61,10 @@ add at the end of .bashrc file
 export QTDIR=/usr/lib/x86_64-linux-gnu/qt5
 export PATH=$PATH:$QTDIR/bin
 
+** find a package name and a package path **
+
+import pkgutil
+from ament_index_python.packages import get_package_share_directory
+...
+package_name = next(pkgutil.iter_modules()).name
+package_path = get_package_share_directory(package_name)
