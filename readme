@@ -68,3 +68,41 @@ from ament_index_python.packages import get_package_share_directory
 ...
 package_name = next(pkgutil.iter_modules()).name
 package_path = get_package_share_directory(package_name)
+
+
+# read the map.yaml file from the launch file itself
+from launch import LaunchDescription
+from launch.actions import ExecuteProcess
+from launch_ros.actions import Node
+import os
+
+def generate_launch_description():
+    # Script Python per ottenere il nome del file YAML
+    get_yaml_filename_script = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)),
+        'get_yaml_filename.py'
+    )
+
+    # Azione di lancio per eseguire lo script Python
+    get_yaml_filename_action = ExecuteProcess(
+        cmd=['python3', get_yaml_filename_script],
+        output='screen'
+    )
+
+    # Nodo 'map_server' che legge il file YAML
+    map_server_node = Node(
+        package='nav2_map_server',
+        executable='map_server',
+        name='map_server',
+        output='screen',
+        parameters=[{
+            'use_sim_time': True,
+            'yaml_filename': '${yaml_filename}'
+        }]
+    )
+
+    return LaunchDescription([
+        get_yaml_filename_action,
+        map_server_node
+        # Altri nodi e azioni di lancio, se necessario
+    ])
